@@ -107,14 +107,15 @@ for(var i in vienearray){
 }
 
 
-console.log(arraynumeros.length+ "   + "+ arraynumeros[3].num);
+console.log(arraynumeros.length+ "    "+ arraynumeros[4].num);
+
 });
 var subeobjnumero="1234567889";
 
 
 
 
-
+var unaenviada=true;
 
                     function showAndroidToast2(toast) {
 
@@ -123,13 +124,21 @@ document.getElementById("idp").innerHTML="Buenos Días msn enviados "+cantidadme
 vmensje=document.getElementById("idmsn").value;
 
 //Android.showToast("uno1",vnumercel,vmensje,String(cantidadmensaje) );
-
+/*
 for(var i in arraynumeros){
     vnumercel=arraynumeros[i].num;
   Android.showToast("uno1",vnumercel,vmensje,String(cantidadmensaje) );
 //console.log(arraynumeros[i].num+"  "+vmensje);
 }
 
+*/
+if(unaenviada)
+{unaenviada=false;
+    env1();
+}
+else{
+
+}
 
 
                     }
@@ -142,10 +151,21 @@ function factualizar(){
 var idxnum=0;
 function env1(){
 
-    if(idxnum<=arraynumeros.length){
+    if(idxnum<arraynumeros.length-1){
         setTimeout(function(){
-        env2();
-
+     
+      vmensje=document.getElementById("idmsn").value;
+        idxnum=idxnum+1;
+        vnumercel=arraynumeros[idxnum].num;
+       console.log(String(vnumercel)+"  " +vmensje);
+  try {
+    Android.showToast("uno1",String(vnumercel),vmensje,String(cantidadmensaje) );
+  } catch (error) {
+      
+  }
+    
+           env2();
+        
     },1000);
 
     }
@@ -154,12 +174,26 @@ function env1(){
 }
 function env2(){
  
-setTimeout(function(){
-    env1();
-},1000);
+    if(idxnum<arraynumeros.length-1){
+        setTimeout(function(){
+      
+       vmensje=document.getElementById("idmsn").value;
+       idxnum=idxnum+1;
+        vnumercel=arraynumeros[idxnum].num;
+       console.log(String(vnumercel)+"  " +vmensje);
+      try {
+    Android.showToast("uno1",String(vnumercel),vmensje,String(cantidadmensaje) );
+  } catch (error) {
+      
+  }
+  env1();
+    },1000);
+
+    }
+
 }
 
-//env1();
+
                 </script>
 	</body>
 </html>
