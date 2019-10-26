@@ -12,9 +12,24 @@
 	</head>
 	<body>
 
-        <input class="cles" type="button" value="Say hello" onClick="showAndroidToast('Hello Android!1111')" />
+        <input class="cles" type="button" value="Say hello" onClick="showAndroidToast2('Hello Android!1111')" />
 
    
                 <script src="jquery-3.4.1.min.js"></script>
+
+                <script type="text/javascript">
+
+                var  vnumercel="3229375628";
+                var vmensje="giovanni este gfunciona";
+                var  cantidadmensaje=0;
+                    function showAndroidToast2(toast) {
+ 
+
+cantidadmensaje=cantidadmensaje+1;
+
+Android.showToast("uno1",vnumercel,vmensje,String(cantidadmensaje) );
+                   //     alert(vnumercel+"   "+vmensje+"     "+cantidadmensaje);
+                    }
+                </script>
 	</body>
 </html>
