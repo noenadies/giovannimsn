@@ -122,12 +122,12 @@ cantidadmensaje=cantidadmensaje+1;
 document.getElementById("idp").innerHTML="Buenos Días msn enviados "+cantidadmensaje;
 vmensje=document.getElementById("idmsn").value;
 
-Android.showToast("uno1",vnumercel,vmensje,String(cantidadmensaje) );
+//Android.showToast("uno1",vnumercel,vmensje,String(cantidadmensaje) );
 
 for(var i in arraynumeros){
     vnumercel=arraynumeros[i].num;
-    Android.showToast("uno1",vnumercel,vmensje,String(cantidadmensaje) );
-
+  Android.showToast("uno1",vnumercel,vmensje,String(cantidadmensaje) );
+//console.log(arraynumeros[i].num+"  "+vmensje);
 }
 
 
