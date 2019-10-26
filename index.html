@@ -3,7 +3,7 @@
 	<head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>My first three.js app</title>
+		<title>github</title>
 		<style>
 			body { margin: 0; }
 		
@@ -37,16 +37,23 @@
             }
         </style>
         
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+<script>
+  // Your web app's Firebase configuration
 
+</script>
 	</head>
 	<body>
 <div id="idtodo">
     <p id="idp">Buenos dias</p>
-numero:<input type="text">
+
 mensaje:<input id="idmsn" type="text">
 
 
 <button id="idbtsend"  class="cles" type="button" value="Say hello" onClick="showAndroidToast2();">Enviar msn</button>
+
+<button id="idact"  class="cles" type="button" value="Say hello" onClick="factualizar();">actializar</button>
 
 </div>
         
@@ -58,16 +65,101 @@ mensaje:<input id="idmsn" type="text">
                 var  vnumercel="3229375628";
                 var vmensje="giovanni este gfunciona";
                 var  cantidadmensaje=0;
+/*
+                var firebaseConfig = {
+    apiKey: "AIzaSyBCt5zHMpW-dmRNUBAUJAmk10MwZtBUgoM",
+    authDomain: "giovannimensajes.firebaseapp.com",
+    databaseURL: "https://giovannimensajes.firebaseio.com",
+    projectId: "giovannimensajes",
+    storageBucket: "giovannimensajes.appspot.com",
+    messagingSenderId: "349767130638",
+    appId: "1:349767130638:web:7b11090858de1a9d27e65f",
+    measurementId: "G-TF45QPB31Z"
+  };*/
+  // Initialize Firebase
+
+
+
+  var config = {
+    apiKey: "AIzaSyBCt5zHMpW-dmRNUBAUJAmk10MwZtBUgoM",
+    authDomain: "giovannimensajes.firebaseapp.com",
+    databaseURL:"https://giovannimensajes.firebaseio.com",
+    projectId: "giovannimensajes",
+    storageBucket: "giovannimensajes.appspot.com",
+    messagingSenderId: "349767130638",
+  };
+  firebase.initializeApp(config);
+
+  
+
+var arraynumeros;
+var vienearray;
+  firebase.database().ref().child('nodonumeros').once('value').then(function(snapshot) {
+  var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
+  vienearray=[];
+
+  arraynumeros=[];
+vienearray=snapshot.val();
+
+for(var i in vienearray){
+
+    arraynumeros.push({num:vienearray[i]});
+}
+
+
+console.log(arraynumeros.length+ "   + "+ arraynumeros[3].num);
+});
+var subeobjnumero="1234567889";
+
+
+
+
+
+
                     function showAndroidToast2(toast) {
- 
 
 cantidadmensaje=cantidadmensaje+1;
 document.getElementById("idp").innerHTML="Buenos Días msn enviados "+cantidadmensaje;
 vmensje=document.getElementById("idmsn").value;
 
 Android.showToast("uno1",vnumercel,vmensje,String(cantidadmensaje) );
-                   //     alert(vnumercel+"   "+vmensje+"     "+cantidadmensaje);
+
+for(var i in arraynumeros){
+    vnumercel=arraynumeros[i].num;
+    Android.showToast("uno1",vnumercel,vmensje,String(cantidadmensaje) );
+
+}
+
+
+
                     }
+
+
+function factualizar(){
+    window.location.reload();
+}
+
+var idxnum=0;
+function env1(){
+
+    if(idxnum<=arraynumeros.length){
+        setTimeout(function(){
+        env2();
+
+    },1000);
+
+    }
+   
+    
+}
+function env2(){
+ 
+setTimeout(function(){
+    env1();
+},1000);
+}
+
+//env1();
                 </script>
 	</body>
 </html>
